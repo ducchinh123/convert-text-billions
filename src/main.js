@@ -1,5 +1,5 @@
-import './assets/main.css'
-
+import './assets/bootstrap/css/bootstrap.min.css'
+import './assets/bootstrap/js/bootstrap.min.js'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
