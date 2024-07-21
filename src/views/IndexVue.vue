@@ -9,3 +9,8 @@ import TheFooter from './TheFooter.vue';
                 <TheFooter></TheFooter>
         </div>
 </template>
+<style>
+main {
+        background-color: #f8f8f8;
+}
+</style>
