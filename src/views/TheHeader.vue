@@ -29,14 +29,36 @@
 
     #header .header-item:last-child label{
         cursor: pointer;
+        padding: 10px 16px;
+        border-radius: 3px;
     }
 
+    #header .header-item:last-child label:hover{
+        background-color: #CCCED1;
+    } 
+
     #header .header-item:first-child label:last-child{
-        margin-left: 25px;
+        margin-left: 10px;
     }
     
     #header .header-item:first-child label:first-child, label:last-child:hover {
         cursor: pointer;
+        
+    }
+
+    #header .menu label:first-child, label:last-child {
+        padding: 10px 16px;
+        border-radius: 3px;
+    }
+
+    #header .menu label:first-child:hover {
+        
+        background-color: #CCCED1;
+    }
+
+    #header .menu label:last-child:hover {
+        
+        background-color: #CCCED1;
     }
 
     @media screen and (max-width: 431px) {
