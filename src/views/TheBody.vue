@@ -28,7 +28,7 @@ import { RouterLink } from 'vue-router';
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                    <button class="btn btn-outline-secondary">Sao chép</button>
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@ import { RouterLink } from 'vue-router';
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                    <button class="btn btn-outline-secondary">Sao chép</button>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@ import { RouterLink } from 'vue-router';
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                    <button class="btn btn-outline-secondary">Sao chép</button>
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ import { RouterLink } from 'vue-router';
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                    <button class="btn btn-outline-secondary">Sao chép</button>
                   </div>
                 </div>
               </div>
