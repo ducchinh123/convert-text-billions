@@ -1,3 +1,83 @@
+<script setup>
+import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import Swal from "sweetalert2";
+
+const fonts = ref();
+const titleFont = ref('');
+const detailOne = ref('');
+const detailTw = ref('');
+const detailTh = ref('');
+
+const updateText = (event) => {
+  const text = event.target.value;
+  fonts.value.forEach((font) => {
+    font.transformedText = applyFontTransformations(text, font.actions);
+  });
+};
+
+const applyFontTransformations = (text, actions) => {
+  let transformedText = text;
+  actions.forEach((action) => {
+    if (action.action === "normalize" && action.type === "NFD") {
+      transformedText = transformedText.normalize("NFD");
+    }
+    if (action.action === "shift_code_point") {
+      transformedText = transformedText
+        .split("")
+        .map((char) => {
+          const codePoint = char.codePointAt(0);
+          if (codePoint >= action.range[0] && codePoint <= action.range[1]) {
+            return String.fromCodePoint(codePoint + action.add);
+          }
+          return char;
+        })
+        .join("");
+    }
+  });
+  return transformedText;
+};
+
+const copyToClipboard = (text) => {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Sẵn sàng sử dụng phông",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    })
+    .catch((err) => {
+      console.error("Error copying text: ", err);
+    });
+};
+
+
+const route = useRoute();
+const nameFont = route.params.fname;
+const boldData = ref(null);
+
+onMounted(async () => {
+  if (nameFont === 'bold') {
+    try {
+      const module = await import('@/assets/fonts/bold.js');
+      boldData.value = module.default;
+      fonts.value = boldData.value.font
+      titleFont.value = boldData.value.nameFont
+      detailOne.value = boldData.value.detailOne
+      detailTw.value = boldData.value.detailTw
+      detailTh.value = boldData.value.detailThree
+      
+    } catch (error) {
+      console.error('Error loading bold module:', error);
+    }
+  }
+});
+</script>
+
 <template>
   <div class="container p-3">
     <div class="row">
@@ -5,20 +85,12 @@
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-8">
-            <div class="font-title"><h2>Chữ in đậm I</h2></div>
+            <div class="font-title"><h2>{{ titleFont }}</h2></div>
             <p>
-              Phép thuật văn bản unicode cực hay. Viết thông tin cập nhật về
-              𝐛𝐨𝐥𝐝 và/hoặc 𝑖𝑡𝑎𝑙𝑖𝑐 trên Facebook, Twitter và các nơi khác.
+              {{ detailOne }}
             </p>
             <p>
-              Công cụ này tạo văn bản in đậm và in nghiêng bằng cách sử dụng các
-              ký tự unicode (𝐥𝐢𝐤𝐞 𝐭𝐡𝐢𝐬, 𝘁𝗵𝗶𝘀, 𝑡ℎ𝑖𝑠, & 𝘵𝘩𝘪𝘴). Bạn có thể sao chép
-              và dán văn bản này vào email hoặc sử dụng nó trong các cập nhật
-              trạng thái trên Facebook và Twitter, nhận xét trên YouTube, v.v.
-              Chữ in đậm và in nghiêng thường được sử dụng để nhấn mạnh một
-              điểm. Văn bản in đậm cũng có thể được sử dụng để giúp cấu trúc các
-              nội dung văn bản lớn hơn, ví dụ: văn bản in đậm có thể được sử
-              dụng để biểu thị chủ đề, tiêu đề hoặc tiêu đề.
+              {{ detailTw }}
             </p>
           </div>
           <div class="col-md-4">
@@ -42,6 +114,7 @@
           type="text"
           placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
           class="form-control p-2"
+          @keyup="updateText"
         />
       </div>
       <div class="col-md-1"></div>
@@ -50,86 +123,24 @@
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="row mt-3">
-          <div class="col-md-6 mb-3">
+          <div class="col-md-6 mb-3" v-for="font in fonts" :key="font.slug">
             <div class="card">
               <div class="card-header text-center">
-                <RouterLink
-                  :to="{ name: 'detail', params: { fname: 'bold' } }"
-                  style="color: unset; text-decoration: none"
-                  >Chữ in đậm I</RouterLink
-                >
+                {{ font.label }}
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
+                  {{ font.transformedText }}
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <button class="btn btn-outline-secondary">Sao chép</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">
-                <RouterLink to="" style="color: unset; text-decoration: none"
-                  >Chữ in đậm I</RouterLink
-                >
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <button class="btn btn-outline-secondary">Sao chép</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">
-                <RouterLink to="" style="color: unset; text-decoration: none"
-                  >Chữ in đậm I</RouterLink
-                >
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <button class="btn btn-outline-secondary">Sao chép</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">
-                <RouterLink to="" style="color: unset; text-decoration: none"
-                  >Chữ in đậm I</RouterLink
-                >
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <button class="btn btn-outline-secondary">Sao chép</button>
+                    <button
+                      v-show="font.transformedText"
+                      class="btn btn-outline-secondary"
+                      @click="copyToClipboard(font.transformedText)"
+                    >
+                      Sao chép
+                    </button>
                   </div>
                 </div>
               </div>
@@ -144,46 +155,7 @@
       <div class="col-md-10 content-wel">
         <div class="mb-3">
           <p>
-            Văn bản in đậm và in nghiêng có thể được sử dụng trên mạng xã hội và
-            trên web cho một số mục đích khác nhau. Những kiểu văn bản này có
-            thể nhấn mạnh thông tin quan trọng, thu hút sự chú ý đến nội dung cụ
-            thể và làm nổi bật các điểm chính hoặc lời kêu gọi hành động. Việc
-            sử dụng trình tạo văn bản in đậm hoặc in nghiêng sẽ nâng cao khả
-            năng đọc, chia nhỏ các đoạn văn dài và có thể thiết lập hệ thống
-            phân cấp trực quan. Những phong cách này cũng góp phần tạo nên bản
-            sắc hình ảnh của thương hiệu, tăng thêm cá tính và tính nhất quán
-            cho sự hiện diện trực tuyến.
-          </p>
-        </div>
-
-        <div class="mb-3">
-          <p>
-            Mặc dù văn bản in đậm và in nghiêng được tạo ở đây trông giống với
-            văn bản được in đậm hoặc in nghiêng trong trình xử lý văn bản, nhưng
-            nó lại khác. Các ký tự này không được tạo bằng thẻ HTML cũng như
-            không được tạo kiểu bằng thuộc tính CSS (như font-weight: đậm hoặc
-            font-style: italic). Nếu bạn sao chép văn bản này, các chữ cái sẽ
-            giữ nguyên kiểu dáng khi dán ở nơi khác. Đây là sự kỳ diệu của
-            Unicode.
-          </p>
-        </div>
-
-        <div class="mb-3">
-          <p>
-            Dù số ký tự trên bàn phím của bạn là có hạn, các máy tính và điện
-            thoại lại có thể nhận diện được hàng chục ngàn ký tự. Các mấy tính
-            chỉ hỗ trợ 128 ký tự (ASCII) trong quá khứ bây giờ có thể hỗ trợ và
-            nhận diện nhiều ký tự nhờ vào Unicode. Hơn nữa, hàng năm tiêu chuẩn
-            Unicode đều mở rộng với nhiều ký tự, biểu tượng, và emoji hơn, và
-            nhiều ký tự mới, từ lá cờ của các nước đến các biểu tượng khác nhau,
-            đã có thể được hiểu bởi tất cả các máy tính.
-          </p>
-          <p>
-            Công cụ Tạo Phông chữ cho phép bạn viết văn bản đẹp mắt có thể dùng
-            được trên các diễn đàn như WhatsApp, Instagram, và nhiều game trực
-            tuyến bằng cách dùng các biểu tượng không có trên bàn phím. Lúc làm
-            điều này, nó sẽ thay đổi từng chữ cái bạn nhập vào bằng các biểu
-            tượng văn bản.
+            {{ detailTh }}
           </p>
         </div>
       </div>

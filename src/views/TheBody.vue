@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, watch  } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { RouterLink } from "vue-router";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const fonts = ref([
   {
@@ -391,7 +391,7 @@ const fonts = ref([
       path: "double-struck",
     },
   },
- 
+
   {
     label: "Monospace",
     slug: "monospace",
@@ -635,8 +635,7 @@ const fonts = ref([
     },
   },
   {
-    label:
-      'Vaporwave (Λ & Ξ replacement)',
+    label: "Vaporwave (Λ & Ξ replacement)",
     slug: "vaporwave-ae",
     previewFont: "system",
     actions: [
@@ -659,8 +658,7 @@ const fonts = ref([
     },
   },
   {
-    label:
-      'Vaporwave (▲ & ▼ replacement)',
+    label: "Vaporwave (▲ & ▼ replacement)",
     slug: "vaporwave-av",
     previewFont: "system",
     actions: [
@@ -683,8 +681,7 @@ const fonts = ref([
     },
   },
   {
-    label:
-      'Vaporwave (Σ & ♢ replacement)',
+    label: "Vaporwave (Σ & ♢ replacement)",
     slug: "vaporwave-eo",
     previewFont: "system",
     actions: [
@@ -706,7 +703,7 @@ const fonts = ref([
       path: "full-width-vaporwave",
     },
   },
-  
+
   {
     label: "Bubble text",
     slug: "bubble",
@@ -1115,7 +1112,7 @@ const fonts = ref([
     textStyle: {
       path: "east-asian-text",
     },
-  }
+  },
 ]);
 
 const updateText = (event) => {
@@ -1147,46 +1144,43 @@ const applyFontTransformations = (text, actions) => {
   return transformedText;
 };
 
-let text_demo = "Đây văn bản mẫu cho kiểu phông chữ này"
-
+let text_demo = "Đây văn bản mẫu cho kiểu phông chữ này";
 
 const copyToClipboard = (text) => {
   navigator.clipboard
     .writeText(text)
     .then(() => {
       Swal.fire({
-      position: "top-center",
-      icon: "success",
-      title: "Sẵn sàng sử dụng phông",
-      showConfirmButton: false,
-      timer: 1500
-    });
+        position: "top-center",
+        icon: "success",
+        title: "Sẵn sàng sử dụng phông",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     })
     .catch((err) => {
       console.error("Error copying text: ", err);
     });
 };
 
+const text = "Đây là văn bản mẫu cho kiểu phông chữ này";
+const myInput = ref("");
+let index = 0;
+const typeCharacter = () => {
+  if (index < text.length) {
+    myInput.value += text.charAt(index);
+    index++;
+    setTimeout(typeCharacter, 100); // Điều chỉnh tốc độ gõ phím ở đây (ms)
+  }
+};
 
-    const text = 'Đây là văn bản mẫu cho kiểu phông chữ này';
-    const myInput = ref('');
-    let index = 0;
-    const typeCharacter = () => {
-      if (index < text.length) {
-        myInput.value += text.charAt(index);
-        index++;
-        setTimeout(typeCharacter, 100); // Điều chỉnh tốc độ gõ phím ở đây (ms)
-      }
-    };
+watch(myInput, (newValue) => {
+  updateText({ target: { value: newValue } });
+});
 
-    watch(myInput, (newValue) => {
-      updateText({ target: { value: newValue } });
-    });
-
-    onMounted(() => {
-      typeCharacter();
-    });
-
+onMounted(() => {
+  typeCharacter();
+});
 </script>
 <template>
   <div class="container p-3">
@@ -1219,13 +1213,12 @@ const copyToClipboard = (text) => {
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{
-                    font.transformedText
-                  }}
+                  {{ font.transformedText }}
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <button v-show="font.transformedText"
+                    <button
+                      v-show="font.transformedText"
                       class="btn btn-outline-secondary"
                       @click="copyToClipboard(font.transformedText)"
                     >
