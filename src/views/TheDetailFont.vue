@@ -61,6 +61,7 @@ const boldData = ref(null);
 const doubleData = ref(null);
 const SansSerifData = ref(null);
 const CursiveScript = ref(null);
+const Fraktur = ref(null)
 onMounted(async () => {
   if (
     nameFont === "bold" ||
@@ -149,6 +150,24 @@ onMounted(async () => {
       detailOne.value = CursiveScript.value.detailOne;
       detailTw.value = CursiveScript.value.detailTw;
       detailTh.value = CursiveScript.value.detailThree;
+    } catch (error) {
+      console.error("Error loading bold module:", error);
+    }
+  }
+  else if (nameFont === "fraktur" || nameFont === "bold-fraktur") {
+    try {
+      const module = await import("@/assets/fonts/fraktur.js");
+      Fraktur.value = module.default;
+      fonts.value = Fraktur.value.font;
+    
+      if(nameFont === "fraktur") {
+        titleFont.value = "Fraktur";
+      }else {
+        titleFont.value = "Bold Fraktur"
+      }
+      detailOne.value = Fraktur.value.detailOne;
+      detailTw.value = Fraktur.value.detailTw;
+      detailTh.value = Fraktur.value.detailThree;
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
