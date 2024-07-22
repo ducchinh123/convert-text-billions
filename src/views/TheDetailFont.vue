@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import Swal from "sweetalert2";
+import varpowave from "@/assets/fonts/varpowave.js";
 
 const fonts = ref();
 const titleFont = ref("");
@@ -63,6 +64,9 @@ const SansSerifData = ref(null);
 const CursiveScript = ref(null);
 const Fraktur = ref(null)
 const Monospace = ref(null)
+const Vaporwave = ref(null)
+const Bubble = ref(null)
+const Square = ref(null)
 onMounted(async () => {
   if (
     nameFont === "bold" ||
@@ -183,6 +187,67 @@ onMounted(async () => {
       detailOne.value = Monospace.value.detailOne;
       detailTw.value = Monospace.value.detailTw;
       detailTh.value = Monospace.value.detailThree;
+    } catch (error) {
+      console.error("Error loading bold module:", error);
+    }
+  }
+  else if (nameFont === "vaporwave-ae" || nameFont === 'vaporwave-av' || nameFont === 'vaporwave-eo' || nameFont === 'fullwidth') {
+    try {
+      const module = await import("@/assets/fonts/varpowave.js");
+      Vaporwave.value = module.default;
+      fonts.value = Vaporwave.value.font;
+      if(nameFont === "vaporwave-ae") {
+        titleFont.value = 'Vaporwave (Λ & Ξ replacement)'
+      }else if(nameFont === 'vaporwave-eo') {
+        titleFont.value = "Vaporwave (Σ & ♢ replacement)"
+      }else if(nameFont === 'vaporwave-av') {
+        titleFont.value = 'Vaporwave (▲ & ▼ replacement)'
+      }else {
+        titleFont.value = 'Fullwidth'
+      }
+      detailOne.value = Vaporwave.value.detailOne;
+      detailTw.value = Vaporwave.value.detailTw;
+      detailTh.value = Vaporwave.value.detailThree;
+    } catch (error) {
+      console.error("Error loading bold module:", error);
+    }
+  }
+  else if (nameFont === "bubble" || nameFont === 'black-bubble' || nameFont === 'parenthesis') {
+    try {
+      const module = await import("@/assets/fonts/black-bubble.js");
+      Bubble.value = module.default;
+      fonts.value = Bubble.value.font;
+      if(nameFont === "bubble") {
+        titleFont.value = 'Bubble'
+
+      }else if(nameFont === 'parenthesis') {
+        titleFont.value = 'parenthesis'
+      }
+      else {
+        titleFont.value = "Black Bubble"
+      }
+      detailOne.value = Bubble.value.detailOne;
+      detailTw.value = Bubble.value.detailTw;
+      detailTh.value = Bubble.value.detailThree;
+    } catch (error) {
+      console.error("Error loading bold module:", error);
+    }
+  }
+
+  else if (nameFont === "black-square" || nameFont === 'square') {
+    try {
+      const module = await import("@/assets/fonts/square.js");
+      Square.value = module.default;
+      fonts.value = Square.value.font;
+      if(nameFont === "black-square") {
+        titleFont.value = 'Black Square'
+      }
+      else {
+        titleFont.value = "Square"
+      }
+      detailOne.value = Square.value.detailOne;
+      detailTw.value = Square.value.detailTw;
+      detailTh.value = Square.value.detailThree;
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
