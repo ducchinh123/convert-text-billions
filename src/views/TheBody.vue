@@ -25,71 +25,7 @@
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
-              <div class="card-body">
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
+                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
                   </div>
                 </div>
               </div>
@@ -106,12 +42,47 @@
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <a href="#" class="btn btn-primary">Sao chép</a>
+                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="col-md-6 mb-3">
+            <div class="card">
+              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-body">
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <div class="card">
+              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-body">
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <a href="#" class="btn btn-outline-secondary">Sao chép</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div class="col-md-1"></div>

@@ -46,7 +46,8 @@
 #header .header-item:last-child label {
   cursor: pointer;
   padding: 10px 16px;
-  border-radius: 3px;
+  border-radius: 4px;
+  transition:  0.3s;
 }
 
 #header .header-item:last-child label:hover {
@@ -65,7 +66,8 @@ label:last-child:hover {
 #header .menu label:first-child,
 label:last-child {
   padding: 10px 16px;
-  border-radius: 3px;
+  border-radius: 4px;
+  transition: 0.3s;
 }
 
 #header .menu label:first-child:hover {
