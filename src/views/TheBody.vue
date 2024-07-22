@@ -1,343 +1,1120 @@
 <script setup>
-import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, onMounted, watch  } from "vue";
+import { RouterLink } from "vue-router";
 
 const fonts = ref([
-{
-      label: "Bold (serif)",
-      slug: "bold",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
-        },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 119743,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 119737,
-        },
-        {
-          action: "shift_code_point",
-          range: [48, 57],
-          add: 120734,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+  {
+    label: "Bold (serif)",
+    slug: "bold",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
       },
-    },
-    {
-      label: "Italic (serif)",
-      slug: "italic",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
-        },
-        {
-          action: "map_code_point",
-          map: {
-            104: [8462],
-          },
-        },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 119795,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 119789,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119743,
       },
-    },
-    {
-      label: "Bold / italic (serif)",
-      slug: "bold-italic",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
-        },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 119847,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 119841,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119737,
       },
-    },
-    {
-      label: "Bold (sans)",
-      slug: "bold-sans",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
-        },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 120211,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 120205,
-        },
-        {
-          action: "shift_code_point",
-          range: [48, 57],
-          add: 120764,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+      {
+        action: "shift_code_point",
+        range: [48, 57],
+        add: 120734,
       },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bold-italic",
     },
-    {
-      label: "Italic (sans)",
-      slug: "italic-sans",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
-        },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 120263,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 120257,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+  },
+  {
+    label: "Italic (serif)",
+    slug: "italic",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
       },
-    },
-    {
-      label: "Bold / italic (sans)",
-      slug: "bold-italic-sans",
-      previewFont: "times",
-      actions: [
-        {
-          action: "normalize",
-          type: "NFD",
+      {
+        action: "map_code_point",
+        map: {
+          104: [8462],
         },
-        {
-          action: "shift_code_point",
-          range: [65, 90],
-          add: 120315,
-        },
-        {
-          action: "shift_code_point",
-          range: [97, 122],
-          add: 120309,
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
       },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119795,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119789,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bold-italic",
     },
-    {
-      label: "Alternating Bold",
-      slug: "alternating-bold",
-      previewFont: "times",
-      actions: [
-        {
-          actions: [
-            [
-              {
-                action: "normalize",
-                type: "NFD",
-              },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 119743,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 119737,
-              },
-              {
-                action: "shift_code_point",
-                range: [48, 57],
-                add: 120734,
-              },
-            ],
-            [],
+  },
+  {
+    label: "Bold / italic (serif)",
+    slug: "bold-italic",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119847,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119841,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Bold (sans)",
+    slug: "bold-sans",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120211,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120205,
+      },
+      {
+        action: "shift_code_point",
+        range: [48, 57],
+        add: 120764,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Italic (sans)",
+    slug: "italic-sans",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120263,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120257,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Bold / italic (sans)",
+    slug: "bold-italic-sans",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120315,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120309,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Bold w/ Alternating Italic",
+    slug: "bold-alternating-italic",
+    previewFont: "times",
+    actions: [
+      {
+        actions: [
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119847,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119841,
+            },
           ],
-          action: "cycle",
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
-      },
-    },
-    {
-      label: "Alternating Italic",
-      slug: "alternating-italic",
-      previewFont: "times",
-      actions: [
-        {
-          actions: [
-            [
-              {
-                action: "normalize",
-                type: "NFD",
-              },
-              {
-                action: "map_code_point",
-                map: {
-                  104: [8462],
-                },
-              },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 119795,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 119789,
-              },
-            ],
-            [],
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 120315,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 120309,
+            },
           ],
-          action: "cycle",
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+        ],
+        action: "cycle",
       },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
     },
-    {
-      label: "Bold w/ Alternating Italic",
-      slug: "bold-alternating-italic",
-      previewFont: "times",
-      actions: [
-        {
-          actions: [
-            [
-              {
-                action: "normalize",
-                type: "NFD",
+  },
+  {
+    label: "Italic Switch Serifs",
+    slug: "italic-switch-serifs",
+    previewFont: "times",
+    actions: [
+      {
+        actions: [
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "map_code_point",
+              map: {
+                104: [8462],
               },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 119847,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 119841,
-              },
-            ],
-            [
-              {
-                action: "normalize",
-                type: "NFD",
-              },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 120315,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 120309,
-              },
-            ],
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119795,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119789,
+            },
           ],
-          action: "cycle",
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 120263,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 120257,
+            },
+          ],
+        ],
+        action: "cycle",
       },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
     },
-    {
-      label: "Italic Switch Serifs",
-      slug: "italic-switch-serifs",
-      previewFont: "times",
-      actions: [
-        {
-          actions: [
-            [
-              {
-                action: "normalize",
-                type: "NFD",
-              },
-              {
-                action: "map_code_point",
-                map: {
-                  104: [8462],
-                },
-              },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 119795,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 119789,
-              },
-            ],
-            [
-              {
-                action: "normalize",
-                type: "NFD",
-              },
-              {
-                action: "shift_code_point",
-                range: [65, 90],
-                add: 120263,
-              },
-              {
-                action: "shift_code_point",
-                range: [97, 122],
-                add: 120257,
-              },
-            ],
+  },
+  {
+    label: "Alternating Bold",
+    slug: "alternating-bold",
+    previewFont: "times",
+    actions: [
+      {
+        actions: [
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119743,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119737,
+            },
+            {
+              action: "shift_code_point",
+              range: [48, 57],
+              add: 120734,
+            },
           ],
-          action: "cycle",
-        },
-      ],
-      textStyle: {
-        path: "bold-italic",
+          [],
+        ],
+        action: "cycle",
       },
-    }
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Alternating Italic",
+    slug: "alternating-italic",
+    previewFont: "times",
+    actions: [
+      {
+        actions: [
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "map_code_point",
+              map: {
+                104: [8462],
+              },
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119795,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119789,
+            },
+          ],
+          [],
+        ],
+        action: "cycle",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bold-italic",
+    },
+  },
+  {
+    label: "Double-struck",
+    slug: "double-struck",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "map_code_point",
+        map: {
+          67: [8450],
+          72: [8461],
+          78: [8469],
+          80: [8473],
+          81: [8474],
+          82: [8477],
+          90: [8484],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120055,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120049,
+      },
+      {
+        action: "shift_code_point",
+        range: [48, 57],
+        add: 120744,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "double-struck",
+    },
+  },
+ 
+  {
+    label: "Monospace",
+    slug: "monospace",
+    previewFont: "system",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120367,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120361,
+      },
+      {
+        action: "shift_code_point",
+        range: [49, 57],
+        add: 120774,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "monospace",
+    },
+  },
+  {
+    label: "Sans Serif",
+    slug: "sans-serif",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120159,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120153,
+      },
+      {
+        action: "shift_code_point",
+        range: [48, 57],
+        add: 120754,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "sans-serif",
+    },
+  },
+  {
+    label: "Cursive script",
+    slug: "script",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "map_code_point",
+        map: "cu",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119899,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119893,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "script",
+    },
+  },
+  {
+    label: "Bold cursive script",
+    slug: "bold-script",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119951,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119945,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "script",
+    },
+  },
+  {
+    label: "Cursive script w/ alternating bold",
+    slug: "alt-cursive",
+    previewFont: "times",
+    actions: [
+      {
+        actions: [
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "map_code_point",
+              map: "cu",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119899,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119893,
+            },
+          ],
+          [
+            {
+              action: "normalize",
+              type: "NFD",
+            },
+            {
+              action: "shift_code_point",
+              range: [65, 90],
+              add: 119951,
+            },
+            {
+              action: "shift_code_point",
+              range: [97, 122],
+              add: 119945,
+            },
+          ],
+        ],
+        action: "cycle",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "script",
+    },
+  },
+  {
+    label: "Fraktur",
+    slug: "fraktur",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "map_code_point",
+        map: {
+          67: [8493],
+          72: [8460],
+          73: [8465],
+          82: [8476],
+          90: [8488],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120003,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119997,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "fraktur",
+    },
+  },
+  {
+    label: "Bold fraktur",
+    slug: "bold-fraktur",
+    previewFont: "times",
+    actions: [
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120107,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120101,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "fraktur",
+    },
+  },
+  {
+    label: "Fullwidth",
+    slug: "fullwidth",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [33, 126],
+        add: 65248,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "full-width-vaporwave",
+    },
+  },
+  {
+    label:
+      'Vaporwave (Λ & Ξ replacement)',
+    slug: "vaporwave-ae",
+    previewFont: "system",
+    actions: [
+      {
+        action: "map_code_point",
+        map: {
+          65: [923],
+          69: [926],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [33, 126],
+        add: 65248,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "full-width-vaporwave",
+    },
+  },
+  {
+    label:
+      'Vaporwave (▲ & ▼ replacement)',
+    slug: "vaporwave-av",
+    previewFont: "system",
+    actions: [
+      {
+        action: "map_code_point",
+        map: {
+          65: [9650],
+          86: [9660],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [33, 126],
+        add: 65248,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "full-width-vaporwave",
+    },
+  },
+  {
+    label:
+      'Vaporwave (Σ & ♢ replacement)',
+    slug: "vaporwave-eo",
+    previewFont: "system",
+    actions: [
+      {
+        action: "map_code_point",
+        map: {
+          69: [931],
+          79: [9826],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [33, 126],
+        add: 65248,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "full-width-vaporwave",
+    },
+  },
+  
+  {
+    label: "Bubble text",
+    slug: "bubble",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 9333,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 9327,
+      },
+      {
+        action: "shift_code_point",
+        range: [49, 57],
+        add: 9263,
+      },
+      {
+        action: "map_code_point",
+        map: {
+          48: [9450],
+        },
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bubble-text",
+    },
+  },
+  {
+    label: "Black bubble text",
+    slug: "black-bubble",
+    previewFont: "system",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 127247,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 127215,
+      },
+      {
+        action: "shift_code_point",
+        range: [49, 57],
+        add: 10073,
+      },
+      {
+        action: "map_code_point",
+        map: {
+          48: [9471],
+        },
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bubble-text",
+    },
+  },
+  {
+    label: "Square",
+    slug: "square",
+    previewFont: "system",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 127215,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 127183,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "square-text",
+    },
+  },
+  {
+    label: "Black square",
+    slug: "black-square",
+    previewFont: "system",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 127279,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 127247,
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "square-text",
+    },
+  },
+  {
+    label: "Cuniform",
+    slug: "cuniform",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "cun1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "cuniform",
+    },
+  },
+  {
+    label: "Vai Letterlike",
+    slug: "vai",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "vai1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "vai",
+    },
+  },
+  {
+    label: "Bamum Letterlike",
+    slug: "bamum",
+    previewFont: "system",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "bam1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "bamum",
+    },
+  },
+  {
+    label: "Canadian Aboriginal Letterlike 1",
+    slug: "canadian-aboriginal-1",
+    previewFont: "times",
+    actions: [
+      {
+        range: [97, 122],
+        action: "shift_code_point",
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "canab1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "canadian-aboriginal",
+    },
+  },
+  {
+    label: "Canadian Aboriginal Letterlike 2",
+    slug: "canadian-aboriginal-2",
+    previewFont: "times",
+    actions: [
+      {
+        range: [97, 122],
+        action: "shift_code_point",
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "canab2",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "canadian-aboriginal",
+    },
+  },
+  {
+    label: "Canadian Aboriginal Letterlike 3",
+    slug: "canadian-aboriginal-3",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        add: -32,
+        range: [97, 122],
+      },
+      {
+        action: "map_code_point",
+        map: "canab3",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "canadian-aboriginal",
+    },
+  },
+  {
+    label: "Small Canadian Aboriginal Letterlike",
+    slug: "canadian-aboriginal-sm",
+    previewFont: "times",
+    actions: [
+      {
+        range: [65, 90],
+        action: "shift_code_point",
+        add: 32,
+      },
+      {
+        action: "map_code_point",
+        map: "canabsm1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "canadian-aboriginal",
+    },
+  },
+  {
+    label: "Canadian Aboriginal Letterlike Tile Case ",
+    slug: "canadian-aboriginal-titlecase",
+    previewFont: "times",
+    actions: [
+      {
+        action: "rand",
+        seed: 1,
+        actions: [
+          [
+            {
+              action: "map_code_point",
+              map: "canab1",
+            },
+          ],
+          [
+            {
+              action: "map_code_point",
+              map: "canab2",
+            },
+          ],
+        ],
+      },
+      {
+        action: "map_code_point",
+        map: "canabsm1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "canadian-aboriginal",
+    },
+  },
+  {
+    label: "Parenthesis",
+    slug: "parenthesis",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 127183,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 9275,
+      },
+      {
+        action: "shift_code_point",
+        range: [49, 57],
+        add: 9283,
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bubble-text",
+    },
+  },
+  {
+    label: "Big bubbles",
+    slug: "big-bubble",
+    previewFont: "system",
+    actions: [
+      {
+        action: "append",
+        chars: [8413],
+        except: [" "],
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bubble-text",
+    },
+  },
+  {
+    label: "Keycap bubbles",
+    slug: "keycap-bubble",
+    previewFont: "system",
+    actions: [
+      {
+        action: "append",
+        chars: [8419],
+        except: [" "],
+      },
+    ],
+    hasPreviewImages: true,
+    textStyle: {
+      path: "bubble-text",
+    },
+  },
+  {
+    label: "CJK Letterlike 1",
+    slug: "cjk-1",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "cjn",
+      },
+      {
+        action: "map_code_point",
+        map: "cj1",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "east-asian-text",
+    },
+  },
+  {
+    label: "CJK Letterlike 2",
+    slug: "cjk-2",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "cjn",
+      },
+      {
+        action: "map_code_point",
+        map: "cj2",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "east-asian-text",
+    },
+  },
+  {
+    label: "CJK Letterlike 3",
+    slug: "cjk-3",
+    previewFont: "times",
+    actions: [
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: -32,
+      },
+      {
+        action: "map_code_point",
+        map: "cjn",
+      },
+      {
+        action: "map_code_point",
+        map: "cj3",
+      },
+    ],
+    hasPreviewImages: false,
+    textStyle: {
+      path: "east-asian-text",
+    },
+  }
 ]);
 
 const updateText = (event) => {
@@ -355,7 +1132,7 @@ const applyFontTransformations = (text, actions) => {
     }
     if (action.action === "shift_code_point") {
       transformedText = transformedText
-        .split('')
+        .split("")
         .map((char) => {
           const codePoint = char.codePointAt(0);
           if (codePoint >= action.range[0] && codePoint <= action.range[1]) {
@@ -363,22 +1140,47 @@ const applyFontTransformations = (text, actions) => {
           }
           return char;
         })
-        .join('');
+        .join("");
     }
   });
   return transformedText;
 };
 
+let text_demo = "Đây văn bản mẫu cho kiểu phông chữ này"
+
+
 const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Đã sao chép!');
-  }).catch(err => {
-    console.error('Error copying text: ', err);
-  });
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("Đã sao chép!");
+    })
+    .catch((err) => {
+      console.error("Error copying text: ", err);
+    });
 };
 
-</script>
 
+    const text = 'Đây là văn bản mẫu cho kiểu phông chữ này';
+    const myInput = ref('');
+    let index = 0;
+    const typeCharacter = () => {
+      if (index < text.length) {
+        myInput.value += text.charAt(index);
+        index++;
+        setTimeout(typeCharacter, 100); // Điều chỉnh tốc độ gõ phím ở đây (ms)
+      }
+    };
+
+    watch(myInput, (newValue) => {
+      updateText({ target: { value: newValue } });
+    });
+
+    onMounted(() => {
+      typeCharacter();
+    });
+
+</script>
 <template>
   <div class="container p-3">
     <div class="row">
@@ -389,6 +1191,7 @@ const copyToClipboard = (text) => {
           placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
           class="form-control p-2"
           @keyup="updateText"
+          :v-model="myInput"
         />
       </div>
       <div class="col-md-1"></div>
@@ -400,17 +1203,27 @@ const copyToClipboard = (text) => {
           <div class="col-md-6 mb-3" v-for="font in fonts" :key="font.slug">
             <div class="card">
               <div class="card-header text-center">
-                <RouterLink :to="{ name: 'detail', params: { fname: font.slug } }" style="color: unset; text-decoration: none">
+                <RouterLink
+                  :to="{ name: 'detail', params: { fname: font.slug } }"
+                  style="color: unset; text-decoration: none"
+                >
                   {{ font.label }}
                 </RouterLink>
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{ font.transformedText || "Đ𝐚̂𝐲 𝐥𝐚̀ 𝐤𝐢𝐞̂̉𝐮 𝐯𝐚̆𝐧 𝐛𝐚̉𝐧 𝐦𝐚̂̃𝐮 𝐜𝐡𝐨 𝐥𝐨𝐚̣𝐢 𝐩𝐡𝐨̂𝐧𝐠 𝐜𝐡𝐮̛̃ 𝐧𝐚̀𝐲" }}
+                  {{
+                    font.transformedText
+                  }}
                 </p>
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <button class="btn btn-outline-secondary" @click="copyToClipboard(font.transformedText)">Sao chép</button>
+                    <button v-show="font.transformedText"
+                      class="btn btn-outline-secondary"
+                      @click="copyToClipboard(font.transformedText)"
+                    >
+                      Sao chép
+                    </button>
                   </div>
                 </div>
               </div>
@@ -426,24 +1239,44 @@ const copyToClipboard = (text) => {
         <div class="mb-3">
           <h2>Cách tạo Văn bản Đẹp mắt</h2>
           <p>
-            Bạn có thể tạo văn bản đẹp mắt với Công cụ Chuyển đổi Phông chữ Trực tuyến. Bạn chỉ cần viết văn bản mình muốn làm đẹp vào hộp phía trên. Bạn có thể dùng bất kỳ ký tự nào mình muốn lúc soạn thảo văn bản. Cuối cùng thì, bạn có thể nhấp vào biểu tượng sao chép kế các kiểu phông chữ để sao chép kiểu phông chữ mà mình muốn.
+            Bạn có thể tạo văn bản đẹp mắt với Công cụ Chuyển đổi Phông chữ Trực
+            tuyến. Bạn chỉ cần viết văn bản mình muốn làm đẹp vào hộp phía trên.
+            Bạn có thể dùng bất kỳ ký tự nào mình muốn lúc soạn thảo văn bản.
+            Cuối cùng thì, bạn có thể nhấp vào biểu tượng sao chép kế các kiểu
+            phông chữ để sao chép kiểu phông chữ mà mình muốn.
           </p>
         </div>
 
         <div class="mb-3">
           <h2>Công cụ Thay đổi Phông chữ Trực tuyến là gì?</h2>
           <p>
-            Công cụ Thay đổi Phông chữ Trực tuyến là một công cụ trực tuyến cho phép bạn viết các văn bản sành điệu trên Instagram, Twitter, WhatsApp, Facebook, Discord, and Skype. Ngoài các diễn đàn này, bạn cũng có thể dùng công cụ này để tạo một biệt danh sành điệu. Bạn có thể làm biệt danh của mình thú vị hơn trên các game chẳng hạn như PUBG, CS: GO và tạo ra các biệt danh đẹp mắt của 2024 với các kiểu phông chữ khác nhau.
+            Công cụ Thay đổi Phông chữ Trực tuyến là một công cụ trực tuyến cho
+            phép bạn viết các văn bản sành điệu trên Instagram, Twitter,
+            WhatsApp, Facebook, Discord, and Skype. Ngoài các diễn đàn này, bạn
+            cũng có thể dùng công cụ này để tạo một biệt danh sành điệu. Bạn có
+            thể làm biệt danh của mình thú vị hơn trên các game chẳng hạn như
+            PUBG, CS: GO và tạo ra các biệt danh đẹp mắt của 2024 với các kiểu
+            phông chữ khác nhau.
           </p>
         </div>
 
         <div class="mb-3">
           <h2>Công cụ Thay đổi Phông chữ hoạt động như thế nào?</h2>
           <p>
-            Dù số ký tự trên bàn phím của bạn là có hạn, các máy tính và điện thoại lại có thể nhận diện được hàng chục ngàn ký tự. Các máy tính chỉ hỗ trợ 128 ký tự (ASCII) trong quá khứ bây giờ có thể hỗ trợ và nhận diện nhiều ký tự nhờ vào Unicode. Hơn nữa, hàng năm tiêu chuẩn Unicode đều mở rộng với nhiều ký tự, biểu tượng, và emoji hơn, và nhiều ký tự mới, từ lá cờ của các nước đến các biểu tượng khác nhau, đã có thể được hiểu bởi tất cả các máy tính.
+            Dù số ký tự trên bàn phím của bạn là có hạn, các máy tính và điện
+            thoại lại có thể nhận diện được hàng chục ngàn ký tự. Các máy tính
+            chỉ hỗ trợ 128 ký tự (ASCII) trong quá khứ bây giờ có thể hỗ trợ và
+            nhận diện nhiều ký tự nhờ vào Unicode. Hơn nữa, hàng năm tiêu chuẩn
+            Unicode đều mở rộng với nhiều ký tự, biểu tượng, và emoji hơn, và
+            nhiều ký tự mới, từ lá cờ của các nước đến các biểu tượng khác nhau,
+            đã có thể được hiểu bởi tất cả các máy tính.
           </p>
           <p>
-            Công cụ Tạo Phông chữ cho phép bạn viết văn bản đẹp mắt có thể dùng được trên các diễn đàn như WhatsApp, Instagram, và nhiều game trực tuyến bằng cách dùng các biểu tượng không có trên bàn phím. Lúc làm điều này, nó sẽ thay đổi từng chữ cái bạn nhập vào bằng các biểu tượng văn bản.
+            Công cụ Tạo Phông chữ cho phép bạn viết văn bản đẹp mắt có thể dùng
+            được trên các diễn đàn như WhatsApp, Instagram, và nhiều game trực
+            tuyến bằng cách dùng các biểu tượng không có trên bàn phím. Lúc làm
+            điều này, nó sẽ thay đổi từng chữ cái bạn nhập vào bằng các biểu
+            tượng văn bản.
           </p>
         </div>
       </div>
