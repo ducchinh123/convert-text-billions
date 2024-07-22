@@ -171,106 +171,45 @@ const fonts = ref([
     },
   },
   {
-    label: "Bold w/ Alternating Italic",
-    slug: "bold-alternating-italic",
-    previewFont: "times",
-    actions: [
-      {
-        actions: [
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 119847,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 119841,
-            },
-          ],
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 120315,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 120309,
-            },
-          ],
-        ],
-        action: "cycle",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "bold-italic",
-    },
-  },
-  {
     label: "Italic Switch Serifs",
     slug: "italic-switch-serifs",
     previewFont: "times",
     actions: [
       {
-        actions: [
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "map_code_point",
-              map: {
-                104: [8462],
-              },
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 119795,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 119789,
-            },
-          ],
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 120263,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 120257,
-            },
-          ],
-        ],
-        action: "cycle",
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "map_code_point",
+        map: {
+          104: [8462],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119795,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119789,
+      },
+      {
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 120263,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 120257,
       },
     ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "bold-italic",
-    },
   },
   {
     label: "Alternating Bold",
@@ -278,37 +217,25 @@ const fonts = ref([
     previewFont: "times",
     actions: [
       {
-        actions: [
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 119743,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 119737,
-            },
-            {
-              action: "shift_code_point",
-              range: [48, 57],
-              add: 120734,
-            },
-          ],
-          [],
-        ],
-        action: "cycle",
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119743,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119737,
+      },
+      {
+        action: "shift_code_point",
+        range: [48, 57],
+        add: 120734,
       },
     ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "bold-italic",
-    },
   },
   {
     label: "Alternating Italic",
@@ -316,38 +243,26 @@ const fonts = ref([
     previewFont: "times",
     actions: [
       {
-        actions: [
-          [
-            {
-              action: "normalize",
-              type: "NFD",
-            },
-            {
-              action: "map_code_point",
-              map: {
-                104: [8462],
-              },
-            },
-            {
-              action: "shift_code_point",
-              range: [65, 90],
-              add: 119795,
-            },
-            {
-              action: "shift_code_point",
-              range: [97, 122],
-              add: 119789,
-            },
-          ],
-          [],
-        ],
-        action: "cycle",
+        action: "normalize",
+        type: "NFD",
+      },
+      {
+        action: "map_code_point",
+        map: {
+          104: [8462],
+        },
+      },
+      {
+        action: "shift_code_point",
+        range: [65, 90],
+        add: 119795,
+      },
+      {
+        action: "shift_code_point",
+        range: [97, 122],
+        add: 119789,
       },
     ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "bold-italic",
-    },
   },
   {
     label: "Double-struck",
@@ -811,179 +726,6 @@ const fonts = ref([
     },
   },
   {
-    label: "Cuniform",
-    slug: "cuniform",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "cun1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "cuniform",
-    },
-  },
-  {
-    label: "Vai Letterlike",
-    slug: "vai",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "vai1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "vai",
-    },
-  },
-  {
-    label: "Bamum Letterlike",
-    slug: "bamum",
-    previewFont: "system",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "bam1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "bamum",
-    },
-  },
-  {
-    label: "Canadian Aboriginal Letterlike 1",
-    slug: "canadian-aboriginal-1",
-    previewFont: "times",
-    actions: [
-      {
-        range: [97, 122],
-        action: "shift_code_point",
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "canab1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "canadian-aboriginal",
-    },
-  },
-  {
-    label: "Canadian Aboriginal Letterlike 2",
-    slug: "canadian-aboriginal-2",
-    previewFont: "times",
-    actions: [
-      {
-        range: [97, 122],
-        action: "shift_code_point",
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "canab2",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "canadian-aboriginal",
-    },
-  },
-  {
-    label: "Canadian Aboriginal Letterlike 3",
-    slug: "canadian-aboriginal-3",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        add: -32,
-        range: [97, 122],
-      },
-      {
-        action: "map_code_point",
-        map: "canab3",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "canadian-aboriginal",
-    },
-  },
-  {
-    label: "Small Canadian Aboriginal Letterlike",
-    slug: "canadian-aboriginal-sm",
-    previewFont: "times",
-    actions: [
-      {
-        range: [65, 90],
-        action: "shift_code_point",
-        add: 32,
-      },
-      {
-        action: "map_code_point",
-        map: "canabsm1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "canadian-aboriginal",
-    },
-  },
-  {
-    label: "Canadian Aboriginal Letterlike Tile Case ",
-    slug: "canadian-aboriginal-titlecase",
-    previewFont: "times",
-    actions: [
-      {
-        action: "rand",
-        seed: 1,
-        actions: [
-          [
-            {
-              action: "map_code_point",
-              map: "canab1",
-            },
-          ],
-          [
-            {
-              action: "map_code_point",
-              map: "canab2",
-            },
-          ],
-        ],
-      },
-      {
-        action: "map_code_point",
-        map: "canabsm1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "canadian-aboriginal",
-    },
-  },
-  {
     label: "Parenthesis",
     slug: "parenthesis",
     previewFont: "times",
@@ -1007,110 +749,6 @@ const fonts = ref([
     hasPreviewImages: true,
     textStyle: {
       path: "bubble-text",
-    },
-  },
-  {
-    label: "Big bubbles",
-    slug: "big-bubble",
-    previewFont: "system",
-    actions: [
-      {
-        action: "append",
-        chars: [8413],
-        except: [" "],
-      },
-    ],
-    hasPreviewImages: true,
-    textStyle: {
-      path: "bubble-text",
-    },
-  },
-  {
-    label: "Keycap bubbles",
-    slug: "keycap-bubble",
-    previewFont: "system",
-    actions: [
-      {
-        action: "append",
-        chars: [8419],
-        except: [" "],
-      },
-    ],
-    hasPreviewImages: true,
-    textStyle: {
-      path: "bubble-text",
-    },
-  },
-  {
-    label: "CJK Letterlike 1",
-    slug: "cjk-1",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "cjn",
-      },
-      {
-        action: "map_code_point",
-        map: "cj1",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "east-asian-text",
-    },
-  },
-  {
-    label: "CJK Letterlike 2",
-    slug: "cjk-2",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "cjn",
-      },
-      {
-        action: "map_code_point",
-        map: "cj2",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "east-asian-text",
-    },
-  },
-  {
-    label: "CJK Letterlike 3",
-    slug: "cjk-3",
-    previewFont: "times",
-    actions: [
-      {
-        action: "shift_code_point",
-        range: [97, 122],
-        add: -32,
-      },
-      {
-        action: "map_code_point",
-        map: "cjn",
-      },
-      {
-        action: "map_code_point",
-        map: "cj3",
-      },
-    ],
-    hasPreviewImages: false,
-    textStyle: {
-      path: "east-asian-text",
     },
   },
 ]);
@@ -1191,7 +829,7 @@ onMounted(() => {
           type="text"
           placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
           class="form-control p-2"
-          @keyup="updateText"
+          @input="updateText"
           :v-model="myInput"
         />
       </div>
