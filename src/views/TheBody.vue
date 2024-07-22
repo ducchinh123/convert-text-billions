@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 <template>
   <div class="container p-3">
     <div class="row">
@@ -17,7 +20,7 @@
         <div class="row mt-3">
           <div class="col-md-6 mb-3">
             <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-header text-center"><RouterLink :to="{name: 'detail', params: {fname: 'bold'}}" style="color: unset; text-decoration: none">Chữ in đậm I</RouterLink></div>
               <div class="card-body">
                 <p class="card-text">
                   With supporting text below as a natural lead-in to additional
@@ -34,7 +37,7 @@
 
           <div class="col-md-6 mb-3">
             <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-header text-center"><RouterLink to="" style="color: unset; text-decoration: none">Chữ in đậm I</RouterLink></div>
               <div class="card-body">
                 <p class="card-text">
                   With supporting text below as a natural lead-in to additional
@@ -51,7 +54,7 @@
 
           <div class="col-md-6 mb-3">
             <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-header text-center"><RouterLink to="" style="color: unset; text-decoration: none">Chữ in đậm I</RouterLink></div>
               <div class="card-body">
                 <p class="card-text">
                   With supporting text below as a natural lead-in to additional
@@ -68,7 +71,7 @@
 
           <div class="col-md-6 mb-3">
             <div class="card">
-              <div class="card-header text-center">Chữ in đậm I</div>
+              <div class="card-header text-center"><RouterLink to="" style="color: unset; text-decoration: none">Chữ in đậm I</RouterLink></div>
               <div class="card-body">
                 <p class="card-text">
                   With supporting text below as a natural lead-in to additional

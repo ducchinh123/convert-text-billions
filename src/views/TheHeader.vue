@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 <template>
   <div id="header">
     <div class="container-fluid">
@@ -12,7 +15,7 @@
         </div>
         <div class="col-md-8 col-8">
           <div class="header-item text-logo header-item-logo">
-            <h1 class="text-lg text-center"><a href="" style="color: unset; text-decoration: none;">Đổi Font Chữ</a></h1>
+            <h1 class="text-lg text-center"><RouterLink to="/" style="color: unset; text-decoration: none;">Đổi Font Chữ</RouterLink></h1>
           </div>
         </div>
         <div class="col-md-2 col-2">
