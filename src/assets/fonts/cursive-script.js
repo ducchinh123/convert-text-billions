@@ -48,42 +48,20 @@ const cursiveScript = {
       slug: "alt-cursive",
       previewFont: "times",
       actions: [
-        [
-          {
-            action: "normalize",
-            type: "NFD",
-          },
-          {
-            action: "map_code_point",
-            map: "cu",
-          },
-          {
-            action: "shift_code_point",
-            range: [65, 90],
-            add: 119899,
-          },
-          {
-            action: "shift_code_point",
-            range: [97, 122],
-            add: 119893,
-          },
-        ],
-        [
-          {
-            action: "normalize",
-            type: "NFD",
-          },
-          {
-            action: "shift_code_point",
-            range: [65, 90],
-            add: 119951,
-          },
-          {
-            action: "shift_code_point",
-            range: [97, 122],
-            add: 119945,
-          },
-        ],
+        {
+          action: "normalize",
+          type: "NFD",
+        },
+        {
+          action: "shift_code_point",
+          range: [65, 90],
+          add: 119951,
+        },
+        {
+          action: "shift_code_point",
+          range: [97, 122],
+          add: 119945,
+        },
       ],
     },
     {

@@ -133,12 +133,19 @@ onMounted(async () => {
     }
   }
 
-  else if (nameFont === "bold-script") {
+  else if (nameFont === "script" || nameFont === "alt-cursive" || nameFont === "bold-script" ) {
     try {
       const module = await import("@/assets/fonts/cursive-script.js");
       CursiveScript.value = module.default;
       fonts.value = CursiveScript.value.font;
-      titleFont.value = CursiveScript.value.nameFont;
+    
+      if(nameFont === "script") {
+        titleFont.value = "Cursive script";
+      }else if(nameFont === "alt-cursive") {
+        titleFont.value = "Cursive script w/ alternating bold";
+      }else {
+        titleFont.value = "Bold cursive script"
+      }
       detailOne.value = CursiveScript.value.detailOne;
       detailTw.value = CursiveScript.value.detailTw;
       detailTh.value = CursiveScript.value.detailThree;
