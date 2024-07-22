@@ -62,6 +62,7 @@ const doubleData = ref(null);
 const SansSerifData = ref(null);
 const CursiveScript = ref(null);
 const Fraktur = ref(null)
+const Monospace = ref(null)
 onMounted(async () => {
   if (
     nameFont === "bold" ||
@@ -168,6 +169,20 @@ onMounted(async () => {
       detailOne.value = Fraktur.value.detailOne;
       detailTw.value = Fraktur.value.detailTw;
       detailTh.value = Fraktur.value.detailThree;
+    } catch (error) {
+      console.error("Error loading bold module:", error);
+    }
+  }
+
+  else if (nameFont === "monospace") {
+    try {
+      const module = await import("@/assets/fonts/monospace.js");
+      Monospace.value = module.default;
+      fonts.value = Monospace.value.font;
+      titleFont.value = Monospace.value.nameFont
+      detailOne.value = Monospace.value.detailOne;
+      detailTw.value = Monospace.value.detailTw;
+      detailTh.value = Monospace.value.detailThree;
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
