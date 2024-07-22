@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch  } from "vue";
 import { RouterLink } from "vue-router";
+import Swal from 'sweetalert2';
 
 const fonts = ref([
   {
@@ -1153,7 +1154,13 @@ const copyToClipboard = (text) => {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      alert("Đã sao chép!");
+      Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "Sẵn sàng sử dụng phông",
+      showConfirmButton: false,
+      timer: 1500
+    });
     })
     .catch((err) => {
       console.error("Error copying text: ", err);
