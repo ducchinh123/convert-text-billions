@@ -135,6 +135,10 @@ const script = {
             },
             "previewImages": []
         }
+    ],
+    avatar: "url",
+    previewImages: [
+        
     ]
 }
 
