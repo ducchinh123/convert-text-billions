@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const cursiveScript = {
   nameFont: "Cursive Script",
   detailOne:
@@ -86,6 +88,12 @@ const cursiveScript = {
       ],
     },
   ],
+  avatar: URL.BASE_URL + "/assets/images/cursive/avatar.png",
+  previewImages: [
+    URL.BASE_URL+"/assets/images/cursive/pre1.png",
+    URL.BASE_URL+"/assets/images/cursive/pre2.png",
+    URL.BASE_URL+"/assets/images/cursive/pre3.png",
+]
 };
 
 export default cursiveScript;

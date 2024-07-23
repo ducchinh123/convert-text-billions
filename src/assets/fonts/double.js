@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const double = {
   nameFont: "Double struck",
   detailOne:
@@ -142,6 +144,12 @@ const double = {
       ]
     }
   ],
+  avatar: URL.BASE_URL+"/assets/images/double/avatar.png",
+    previewImages: [
+        URL.BASE_URL+"/assets/images/double/pre1.png",
+        URL.BASE_URL+"/assets/images/double/pre2.png",
+        URL.BASE_URL+"/assets/images/double/pre3.png",
+    ]
 };
 
 export default double;

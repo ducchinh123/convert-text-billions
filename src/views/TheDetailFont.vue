@@ -127,6 +127,8 @@ onMounted(async () => {
       detailOne.value = doubleData.value.detailOne;
       detailTw.value = doubleData.value.detailTw;
       detailTh.value = doubleData.value.detailThree;
+      avatar.value = doubleData.value.avatar
+      previews.value = doubleData.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -160,6 +162,8 @@ onMounted(async () => {
       detailOne.value = CursiveScript.value.detailOne;
       detailTw.value = CursiveScript.value.detailTw;
       detailTh.value = CursiveScript.value.detailThree;
+      avatar.value = CursiveScript.value.avatar
+      previews.value = CursiveScript.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -213,6 +217,7 @@ onMounted(async () => {
       detailOne.value = Vaporwave.value.detailOne;
       detailTw.value = Vaporwave.value.detailTw;
       detailTh.value = Vaporwave.value.detailThree;
+      
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -234,6 +239,8 @@ onMounted(async () => {
       detailOne.value = Bubble.value.detailOne;
       detailTw.value = Bubble.value.detailTw;
       detailTh.value = Bubble.value.detailThree;
+      avatar.value = Bubble.value.avatar
+      previews.value = Bubble.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -358,11 +365,9 @@ onMounted(async () => {
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-4 mb-3" v-for="(preview, index) in previews" :key="index">
-            <img
+            <img style="object-fit: cover;"
               :src="preview"
-              class="img-fluid"
-              width="300"
-              height="300"
+              class="w-100 h-100 img-thumbnail"
               alt="..."
             />
           </div>
