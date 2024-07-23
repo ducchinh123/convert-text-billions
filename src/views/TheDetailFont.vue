@@ -365,7 +365,7 @@ onMounted(async () => {
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-4 mb-3" v-for="(preview, index) in previews" :key="index">
-            <img style="object-fit: cover;"
+            <img style="object-fit: contain;"
               :src="preview"
               class="w-100 h-100 img-thumbnail"
               alt="..."
