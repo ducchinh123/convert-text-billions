@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const bold = {
   nameFont: "Bold and Italics",
   detailOne:
@@ -292,6 +294,12 @@ const bold = {
       ],
     },
   ],
+  avatar: URL.BASE_URL+"/public/assets/images/bold/avatar.png",
+    previewImages: [
+        URL.BASE_URL+"/assets/images/bold/pre1.png",
+        URL.BASE_URL+"/assets/images/bold/pre2.png",
+        URL.BASE_URL+"/assets/images/bold/pre3.png",
+    ]
 };
 
 export default bold;

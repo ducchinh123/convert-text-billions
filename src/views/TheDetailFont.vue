@@ -9,6 +9,9 @@ const titleFont = ref("");
 const detailOne = ref("");
 const detailTw = ref("");
 const detailTh = ref("");
+const avatar = ref("")
+const previews = ref([])
+const domain = ref("") 
 
 const updateText = (event) => {
   const text = event.target.value;
@@ -110,6 +113,8 @@ onMounted(async () => {
       detailOne.value = boldData.value.detailOne;
       detailTw.value = boldData.value.detailTw;
       detailTh.value = boldData.value.detailThree;
+      avatar.value = boldData.value.avatar
+      previews.value = boldData.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -276,7 +281,7 @@ onMounted(async () => {
           <div class="col-md-4">
             <img
               class="w-100"
-              src="https://yaytext.com/static/a6cf60d75833b3f353324f8ea3f45dbe/416c3/main-bold-italic.webp"
+              :src="avatar"
               alt=""
             />
           </div>
@@ -352,66 +357,12 @@ onMounted(async () => {
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-3 mb-3">
+          <div class="col-md-4 mb-3" v-for="(preview, index) in previews" :key="index">
             <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
+              :src="preview"
               class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
-              alt="..."
-            />
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <img
-              src="https://yaytext.com/static/591fac477b447ab4e02a47100d6b34de/a49d0/android-message-sms-bold-italic-1390.webp"
-              class="img-fluid"
+              width="300"
+              height="300"
               alt="..."
             />
           </div>
