@@ -252,6 +252,7 @@ onMounted(async () => {
       console.error("Error loading bold module:", error);
     }
   }
+  
 });
 </script>
 
