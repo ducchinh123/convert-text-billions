@@ -224,7 +224,7 @@ onMounted(async () => {
       detailOne.value = Vaporwave.value.detailOne;
       detailTw.value = Vaporwave.value.detailTw;
       detailTh.value = Vaporwave.value.detailThree;
-      avatar.value = Vaporwave.value.avatar
+  avatar.value = Vaporwave.value.avatar
       previews.value = Vaporwave.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
@@ -375,11 +375,9 @@ onMounted(async () => {
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-4 mb-3" v-for="(preview, index) in previews" :key="index">
-            <img
+            <img style="object-fit: contain;"
               :src="preview"
-              class="img-fluid"
-              width="300"
-              height="300"
+              class="w-100 h-100 img-thumbnail"
               alt="..."
             />
           </div>

@@ -294,7 +294,7 @@ const bold = {
       ],
     },
   ],
-  avatar: URL.BASE_URL+"/public/assets/images/bold/avatar.png",
+  avatar: URL.BASE_URL+"/assets/images/bold/avatar.png",
     previewImages: [
         URL.BASE_URL+"/assets/images/bold/pre1.png",
         URL.BASE_URL+"/assets/images/bold/pre2.png",

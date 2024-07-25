@@ -100,6 +100,7 @@ Trình tạo văn bản bong bóng của chúng tôi sử dụng các ký tự t
       },
     }
   ],
+
   avatar: URL.BASE_URL+"/public/assets/images/bubble/avatar.png",
   previewImages: [
       URL.BASE_URL+"/assets/images/bubble/pre1.png",
