@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const italic = {
     nameFont: "Bold and Italics",
     detailOne:
@@ -292,6 +294,12 @@ const italic = {
         ],
       },
     ],
+    avatar: URL.BASE_URL+"/public/assets/images/italic_switch_serifs/avatar.png",
+    previewImages: [
+        URL.BASE_URL+"/assets/images/italic_switch_serifs/pre1.jpg",
+        URL.BASE_URL+"/assets/images/italic_switch_serifs/pre2.jpg",
+        URL.BASE_URL+"/assets/images/italic_switch_serifs/pre3.jpg",
+    ]
   };
   
   export default italic

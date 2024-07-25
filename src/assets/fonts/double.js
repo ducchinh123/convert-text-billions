@@ -144,12 +144,12 @@ const double = {
       ]
     }
   ],
-  avatar: URL.BASE_URL+"/assets/images/double/avatar.png",
-    previewImages: [
-        URL.BASE_URL+"/assets/images/double/pre1.png",
-        URL.BASE_URL+"/assets/images/double/pre2.png",
-        URL.BASE_URL+"/assets/images/double/pre3.png",
-    ]
+avatar: URL.BASE_URL+"/public/assets/images/double/avatar.png",
+  previewImages: [
+      URL.BASE_URL+"/assets/images/double/pre1.png",
+      URL.BASE_URL+"/assets/images/double/pre2.png",
+      URL.BASE_URL+"/assets/images/double/pre3.png",
+  ],
 };
 
 export default double;

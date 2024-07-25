@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const square = {
   nameFont: "",
   detailOne: "Phép thuật văn bản unicode cực hay. Hình vuông 🅃🄴🅇🅃!",
@@ -50,6 +52,12 @@ const square = {
       },
     }
   ],
+  avatar: URL.BASE_URL+"/public/assets/images/square/avatar.jpg",
+  previewImages: [
+      URL.BASE_URL+"/assets/images/square/pre1.jpg",
+      URL.BASE_URL+"/assets/images/square/pre2.jpg",
+      URL.BASE_URL+"/assets/images/square/pre3.jpg",
+  ]
 };
 
 export default square;

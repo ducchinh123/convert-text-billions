@@ -88,12 +88,12 @@ const cursiveScript = {
       ],
     },
   ],
-  avatar: URL.BASE_URL + "/assets/images/cursive/avatar.png",
+ avatar: URL.BASE_URL + "/public/assets/images/script/avatar.jpg",
   previewImages: [
-    URL.BASE_URL+"/assets/images/cursive/pre1.png",
-    URL.BASE_URL+"/assets/images/cursive/pre2.png",
-    URL.BASE_URL+"/assets/images/cursive/pre3.png",
-]
+      URL.BASE_URL + "/assets/images/script/pre1.jpg",
+      URL.BASE_URL + "/assets/images/script/pre2.jpg",
+      URL.BASE_URL + "/assets/images/script/pre3.jpg",
+  ]
 };
 
 export default cursiveScript;

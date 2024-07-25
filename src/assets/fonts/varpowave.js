@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const varpowave = {
   nameFont: "",
   detailOne:
@@ -105,6 +107,12 @@ Khối Unicode dạng nửa băng thông và toàn băng thông, với các ký 
       },
     },
   ],
+  avatar: URL.BASE_URL+"/public/assets/images/vaporweve/avatar.jpg",
+  previewImages: [
+      URL.BASE_URL+"/assets/images/vaporweve/pre1.jpg",
+      URL.BASE_URL+"/assets/images/vaporweve/pre2.jpg",
+      URL.BASE_URL+"/assets/images/vaporweve/pre3.jpg",
+  ]
 };
 
 export default varpowave;
