@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const fraktur = {
   nameFont: "Fraktur",
   detailOne:
@@ -68,6 +70,12 @@ Fraktur, còn được gọi là Gothic hoặc Blackletter, có một lịch s�
       },
     },
   ],
+  avatar: URL.BASE_URL+"/public/assets/images/fruktur/avatar.png",
+  previewImages: [
+      URL.BASE_URL+"/assets/images/fruktur/pre1.jpg",
+      URL.BASE_URL+"/assets/images/fruktur/pre2.jpg",
+      URL.BASE_URL+"/assets/images/fruktur/pre3.jpg",
+  ]
 };
 
 export default fraktur;

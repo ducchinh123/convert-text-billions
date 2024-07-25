@@ -792,25 +792,36 @@ onMounted(() => {
 <template>
   <div class="container p-3">
     <div class="row">
+      <div data-v-4b4db9c5="" class="col-md-1"></div>
+      <div class="detail-header-index col-md-10">
+        <h2>
+          Chuyển đổi văn bản cực ngầu. Viết chữ nét <b>Đậm</b> nét
+          <span style="font-style: italic">nghiêng</span> và nhiều font chữ dặc
+          biệt khác trên instagram, facebook, zalo,... và mọi nơi khác
+        </h2>
+      </div>
+      <div data-v-4b4db9c5="" class="col-md-1"></div>
+    </div>
+    <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <input
+        <textarea
           type="text"
           placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
-          class="form-control p-2"
+          class="form-control p-2 bd-r1"
           @input="updateText"
           :v-model="myInput"
-        />
+        ></textarea>
       </div>
       <div class="col-md-1"></div>
     </div>
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <div class="row mt-3">
+        <div class="sections row mt-3">
           <div class="col-md-6 mb-3" v-for="font in fonts" :key="font.slug">
-            <div class="card">
-              <div class="card-header text-center">
+            <div class="card bd-r1">
+              <div class="card-header text-center bd-rt1">
                 <RouterLink
                   :to="{ name: 'detail', params: { fname: font.slug } }"
                   style="color: unset; text-decoration: none"
@@ -818,7 +829,7 @@ onMounted(() => {
                   {{ font.label }}
                 </RouterLink>
               </div>
-              <div class="card-body">
+              <div class="cardOn card-body ">
                 <p class="card-text">
                   {{ font.transformedText }}
                 </p>
@@ -910,4 +921,21 @@ onMounted(() => {
 .btn {
   margin-top: 0.5rem;
 }
+.detail-header-index {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.detail-header-index h2 {
+  font-weight: 500;
+}
+.bd-r1 {
+  border-radius: var(--rounded-box, 1rem);
+}
+.bd-rt1 {
+  border-top-left-radius: var(--rounded-box, 1rem);
+  border-top-right-radius: var(--rounded-box, 1rem);
+}
+h2{
+    margin-bottom: 0px !important;
+  }
 </style>

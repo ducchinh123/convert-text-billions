@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const bubble = {
   nameFont: "",
   detailOne: "Phép thuật văn bản unicode cực hay. Muốn một ly ⓑⓤⓑⓑⓛⓨ?",
@@ -98,6 +100,12 @@ Trình tạo văn bản bong bóng của chúng tôi sử dụng các ký tự t
       },
     }
   ],
+  avatar: URL.BASE_URL+"/public/assets/images/bubble/avatar.png",
+  previewImages: [
+      URL.BASE_URL+"/assets/images/bubble/pre1.png",
+      URL.BASE_URL+"/assets/images/bubble/pre2.png",
+      URL.BASE_URL+"/assets/images/bubble/pre3.png",
+  ]
 };
 
 export default bubble;

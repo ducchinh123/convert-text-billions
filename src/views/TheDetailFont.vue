@@ -41,6 +41,7 @@ const applyFontTransformations = (text, actions) => {
   });
   return transformedText;
 };
+// let text_demo = "Đây văn bản mẫu cho kiểu phông chữ này";
 
 const copyToClipboard = (text) => {
   navigator.clipboard
@@ -127,6 +128,8 @@ onMounted(async () => {
       detailOne.value = doubleData.value.detailOne;
       detailTw.value = doubleData.value.detailTw;
       detailTh.value = doubleData.value.detailThree;
+      avatar.value = doubleData.value.avatar
+      previews.value = doubleData.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -139,6 +142,8 @@ onMounted(async () => {
       detailOne.value = SansSerifData.value.detailOne;
       detailTw.value = SansSerifData.value.detailTw;
       detailTh.value = SansSerifData.value.detailThree;
+      avatar.value = SansSerifData.value.avatar
+      previews.value = SansSerifData.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -160,6 +165,8 @@ onMounted(async () => {
       detailOne.value = CursiveScript.value.detailOne;
       detailTw.value = CursiveScript.value.detailTw;
       detailTh.value = CursiveScript.value.detailThree;
+      avatar.value = CursiveScript.value.avatar
+      previews.value = CursiveScript.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -178,6 +185,8 @@ onMounted(async () => {
       detailOne.value = Fraktur.value.detailOne;
       detailTw.value = Fraktur.value.detailTw;
       detailTh.value = Fraktur.value.detailThree;
+      avatar.value = Fraktur.value.avatar
+      previews.value = Fraktur.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -192,6 +201,8 @@ onMounted(async () => {
       detailOne.value = Monospace.value.detailOne;
       detailTw.value = Monospace.value.detailTw;
       detailTh.value = Monospace.value.detailThree;
+      avatar.value = Monospace.value.avatar
+      previews.value = Monospace.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -213,6 +224,8 @@ onMounted(async () => {
       detailOne.value = Vaporwave.value.detailOne;
       detailTw.value = Vaporwave.value.detailTw;
       detailTh.value = Vaporwave.value.detailThree;
+      avatar.value = Vaporwave.value.avatar
+      previews.value = Vaporwave.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -234,6 +247,8 @@ onMounted(async () => {
       detailOne.value = Bubble.value.detailOne;
       detailTw.value = Bubble.value.detailTw;
       detailTh.value = Bubble.value.detailThree;
+      avatar.value = Bubble.value.avatar
+      previews.value = Bubble.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -253,6 +268,8 @@ onMounted(async () => {
       detailOne.value = Square.value.detailOne;
       detailTw.value = Square.value.detailTw;
       detailTh.value = Square.value.detailThree;
+      avatar.value = Square.value.avatar
+      previews.value = Square.value.previewImages
     } catch (error) {
       console.error("Error loading bold module:", error);
     }
@@ -295,12 +312,12 @@ onMounted(async () => {
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <input
+        <textarea
           type="text"
           placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
-          class="form-control p-2"
+          class="form-control p-2 bd-r1"
           @input="updateText"
-        />
+        ></textarea>
       </div>
       <div class="col-md-1"></div>
     </div>
@@ -309,8 +326,8 @@ onMounted(async () => {
       <div class="col-md-10">
         <div class="row mt-3">
           <div class="col-md-6 mb-3" v-for="font in fonts" :key="font.slug">
-            <div class="card">
-              <div class="card-header text-center">
+            <div class="card bd-r1">
+              <div class="card-header text-center bd-rt1">
                 {{ font.label }}
               </div>
               <div class="card-body">
@@ -386,5 +403,12 @@ h2 {
   font-weight: 700;
   line-height: 1.3333333;
   margin-bottom: 1em;
+}
+.bd-r1{
+  border-radius: var(--rounded-box, 1rem);
+}
+.bd-rt1{
+  border-top-left-radius: var(--rounded-box, 1rem);
+  border-top-right-radius: var(--rounded-box, 1rem);
 }
 </style>

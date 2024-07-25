@@ -1,13 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/public/logo-convert-text.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công cụ chuyển đổi phông chữ online</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html data-bs-theme="light" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/public/logo-convert-text.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công cụ chuyển đổi phông chữ online</title>
+</head>
+<style>
+  .app-main{
+    display: grid;
+    grid-auto-columns: max-content auto;
+    position: relative;
+    width: 100%;
+  }
+</style>
+<body>
+  <div id="app" class="app-main"></div>
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkLabel = document.getElementById('dark');
+      const lightLabel = document.getElementById('light');
+    
+      // Kiểm tra xem có tồn tại giá trị trong localStorage hay không
+      if (localStorage.getItem('darkLabelState')) {
+        darkLabel.classList[localStorage.getItem('darkLabelState') === 'true' ? 'add' : 'remove']('hidden');
+      }
+      if (localStorage.getItem('lightLabelState')) {
+        lightLabel.classList[localStorage.getItem('lightLabelState') === 'true' ? 'add' : 'remove']('hidden');
+      }
+      if (localStorage.getItem('dataTheme')) {
+        document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('dataTheme'));
+      }
+      if (localStorage.getItem('headerState')) {
+        const header = document.getElementById('header');
+        header.classList[localStorage.getItem('headerState') === 'true' ? 'add' : 'remove']('header');
+      }
+      if (localStorage.getItem('mainState')) {
+        const main = document.getElementById('__main');
+        main.classList[localStorage.getItem('mainState') === 'true' ? 'add' : 'remove']('main-section');
+      }
+      if (localStorage.getItem('footerState')) {
+        const footer = document.getElementById('footer');
+        footer.classList[localStorage.getItem('footerState') === 'true' ? 'add' : 'remove']('footer');
+      }
+      if (localStorage.getItem('cardOnState')) {
+        const cardOnElements = document.querySelectorAll('.cardOn');
+        cardOnElements.forEach(function(element) {
+          element.classList[localStorage.getItem('cardOnState') === 'true' ? 'add' : 'remove']('bgr-cl');
+        });
+      }
+    
+      darkLabel.addEventListener('click', function() {
+        darkLabel.classList.add('hidden');
+        lightLabel.classList.remove('hidden');
+    
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+    
+        // Lưu trạng thái hiện tại vào localStorage
+        localStorage.setItem('darkLabelState', true);
+        localStorage.setItem('lightLabelState', false);
+        localStorage.setItem('dataTheme', 'dark');
+    
+        const header = document.getElementById('header');
+        const main = document.getElementById('__main');
+        const cardOnElements = document.querySelectorAll('.cardOn');
+        const footer = document.getElementById('footer');
+    
+        header.classList.remove('header');
+        main.classList.remove('main-section');
+        footer.classList.remove('footer');
+    
+        cardOnElements.forEach(function(element) {
+          element.classList.remove('bgr-cl');
+        });
+    
+        // Lưu trạng thái hiện tại vào localStorage
+        localStorage.setItem('headerState', false);
+        localStorage.setItem('mainState', false);
+        localStorage.setItem('footerState', false);
+        localStorage.setItem('cardOnState', false);
+      });
+    
+      lightLabel.addEventListener('click', function() {
+        darkLabel.classList.remove('hidden');
+        lightLabel.classList.add('hidden');
+    
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+    
+        // Lưu trạng thái hiện tại vào localStorage
+        localStorage.setItem('darkLabelState', false);
+        localStorage.setItem('lightLabelState', true);
+        localStorage.setItem('dataTheme', 'light');
+      });
+    });
+    
+  </script>
+</body>
+
+</html>
+
 </html>

@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const script = {
     nameFont: "Cursive Scriptn",
     detailOne:
@@ -136,9 +138,11 @@ const script = {
             "previewImages": []
         }
     ],
-    avatar: "url",
+    avatar: URL.BASE_URL + "/public/assets/images/script/avatar.jpg",
     previewImages: [
-        
+        URL.BASE_URL + "/assets/images/script/pre1.jpg",
+        URL.BASE_URL + "/assets/images/script/pre2.jpg",
+        URL.BASE_URL + "/assets/images/script/pre3.jpg",
     ]
 }
 

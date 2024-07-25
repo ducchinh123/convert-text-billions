@@ -1,3 +1,5 @@
+import URL from "@/const";
+
 const monospace = {
     nameFont: "𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚗",
     detailOne:
@@ -43,8 +45,13 @@ const monospace = {
             "textStyle": {
                 "path": "monospace"
             },
-            "previewImages": []
-        }
+        },
+    ],
+    avatar: URL.BASE_URL+"/public/assets/images/monospan/avatar.jpg",
+    previewImages: [
+        URL.BASE_URL+"/assets/images/monospan/pre1.jpg",
+        URL.BASE_URL+"/assets/images/monospan/pre2.jpg",
+        URL.BASE_URL+"/assets/images/monospan/pre3.jpg",
     ]
 }
 
