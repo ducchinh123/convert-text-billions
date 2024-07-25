@@ -795,9 +795,8 @@ onMounted(() => {
       <div data-v-4b4db9c5="" class="col-md-1"></div>
       <div class="detail-header-index col-md-10">
         <h2>
-          Chuyển đổi văn bản cực ngầu. Viết chữ nét <b>Đậm</b> nét
-          <span style="font-style: italic">nghiêng</span> và nhiều font chữ dặc
-          biệt khác trên instagram, facebook, zalo,... và mọi nơi khác
+          {{ $t('welcome_1') }} <b>{{ $t('welcome_2') }}</b> {{ $t('welcome_3') }}
+          <span style="font-style: italic">{{ $t('welcome_4') }}</span> {{ $t('welcome_5') }}
         </h2>
       </div>
       <div data-v-4b4db9c5="" class="col-md-1"></div>
@@ -807,7 +806,7 @@ onMounted(() => {
       <div class="col-md-10">
         <textarea
           type="text"
-          placeholder="Soạn thảo hoặc sao chép, dán văn bản ở đây."
+          :placeholder="$t('placeholder')"
           class="form-control p-2 bd-r1"
           @input="updateText"
           :v-model="myInput"
@@ -826,7 +825,7 @@ onMounted(() => {
                   :to="{ name: 'detail', params: { fname: font.slug } }"
                   style="color: unset; text-decoration: none"
                 >
-                  {{ font.label }}
+                  {{ $t(font.label) }}
                 </RouterLink>
               </div>
               <div class="cardOn card-body ">
@@ -840,7 +839,7 @@ onMounted(() => {
                       class="btn btn-outline-secondary"
                       @click="copyToClipboard(font.transformedText)"
                     >
-                      Sao chép
+                      {{ $t('Copy') }}
                     </button>
                   </div>
                 </div>
@@ -855,46 +854,26 @@ onMounted(() => {
       <div class="col-md-1"></div>
       <div class="col-md-10 content-wel">
         <div class="mb-3">
-          <h2>Cách tạo Văn bản Đẹp mắt</h2>
+          <h2>{{ $t('h2_1') }}</h2>
           <p>
-            Bạn có thể tạo văn bản đẹp mắt với Công cụ Chuyển đổi Phông chữ Trực
-            tuyến. Bạn chỉ cần viết văn bản mình muốn làm đẹp vào hộp phía trên.
-            Bạn có thể dùng bất kỳ ký tự nào mình muốn lúc soạn thảo văn bản.
-            Cuối cùng thì, bạn có thể nhấp vào biểu tượng sao chép kế các kiểu
-            phông chữ để sao chép kiểu phông chữ mà mình muốn.
+             {{ $t('paragrap_1') }}
           </p>
         </div>
 
         <div class="mb-3">
-          <h2>Công cụ Thay đổi Phông chữ Trực tuyến là gì?</h2>
+          <h2>{{ $t('h2_2') }}</h2>
           <p>
-            Công cụ Thay đổi Phông chữ Trực tuyến là một công cụ trực tuyến cho
-            phép bạn viết các văn bản sành điệu trên Instagram, Twitter,
-            WhatsApp, Facebook, Discord, and Skype. Ngoài các diễn đàn này, bạn
-            cũng có thể dùng công cụ này để tạo một biệt danh sành điệu. Bạn có
-            thể làm biệt danh của mình thú vị hơn trên các game chẳng hạn như
-            PUBG, CS: GO và tạo ra các biệt danh đẹp mắt của 2024 với các kiểu
-            phông chữ khác nhau.
+            {{ $t('paragrap_2') }}
           </p>
         </div>
 
         <div class="mb-3">
-          <h2>Công cụ Thay đổi Phông chữ hoạt động như thế nào?</h2>
+          <h2>{{ $t('h2_3') }}</h2>
           <p>
-            Dù số ký tự trên bàn phím của bạn là có hạn, các máy tính và điện
-            thoại lại có thể nhận diện được hàng chục ngàn ký tự. Các máy tính
-            chỉ hỗ trợ 128 ký tự (ASCII) trong quá khứ bây giờ có thể hỗ trợ và
-            nhận diện nhiều ký tự nhờ vào Unicode. Hơn nữa, hàng năm tiêu chuẩn
-            Unicode đều mở rộng với nhiều ký tự, biểu tượng, và emoji hơn, và
-            nhiều ký tự mới, từ lá cờ của các nước đến các biểu tượng khác nhau,
-            đã có thể được hiểu bởi tất cả các máy tính.
+            {{ $t('paragrap_3') }}
           </p>
           <p>
-            Công cụ Tạo Phông chữ cho phép bạn viết văn bản đẹp mắt có thể dùng
-            được trên các diễn đàn như WhatsApp, Instagram, và nhiều game trực
-            tuyến bằng cách dùng các biểu tượng không có trên bàn phím. Lúc làm
-            điều này, nó sẽ thay đổi từng chữ cái bạn nhập vào bằng các biểu
-            tượng văn bản.
+            {{ $t('paragrap_4') }}
           </p>
         </div>
       </div>
