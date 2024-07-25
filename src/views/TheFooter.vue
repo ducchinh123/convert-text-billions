@@ -4,15 +4,14 @@ import { RouterLink } from "vue-router";
 <template>
   <footer id="footer" class="footer footer-center text-footer">
     <div class="gr-gap">
-          <RouterLink to="" class="link-hover ">Chính sách bảo mật</RouterLink>
-        <RouterLink to="" class="link-hover ">Điều khoản sử dụng</RouterLink>
+          <RouterLink to="" class="link-hover ">{{ $t('privacy_policy') }}</RouterLink>
+        <RouterLink to="" class="link-hover ">{{ $t('terms_of_use') }}</RouterLink>
     </div>
     <div>
-      <p class="copyright link-hover">© Billion ConverText 2024</p>
+      <p class="copyright link-hover">{{ $t('© Billion ConvertText 2024') }}</p>
     </div>
   </footer>
 </template>
-
 <style>
 .footer-center {
   border-top: 1px solid #e2e3e5;

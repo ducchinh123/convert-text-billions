@@ -5,24 +5,50 @@ import { RouterLink } from "vue-router";
   <div id="header" class="header header-nav-bar">
     <div class="nav-menu-language">
       <div class="menu">
-        <label class="btn btn-menu" for=""><i style="font-size: 16px; font-weight: bold !important  "class="bi bi-list"></i>
-          <span class="text-menu md:block  hidden" style="font-size: 16px">Menu</span></label>
+        <label class="btn btn-menu" for=""
+          ><i
+            style="font-size: 16px; font-weight: bold !important"
+            class="bi bi-list"
+          ></i>
+          <span class="text-menu md:block hidden" style="font-size: 16px"
+            >Menu</span
+          ></label
+        >
       </div>
       <div class="menu lg-dorp lg:inline-block hidden">
-        <label for="" class="translate-btn btn btn-menu"><i style="font-size: 16px" class="bi bi-translate"></i>
-          <span class="text-menu md:block hidden" style="font-size: 16px">VI</span></label>
+        <label for="" class="translate-btn btn btn-menu" data-bs-toggle="dropdown"
+            aria-expanded="false"
+          ><i style="font-size: 16px" class="bi bi-translate"></i>
+          <span class="text-menu md:block hidden" style="font-size: 16px"
+            >VI</span
+          ></label
+        >
+
+        <div class="dropdown">
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><img src="../../public/assets/images/flag/viet-nam.png" alt="" style="width: 15px; padding-bottom: 4px;"> Tiếng Việt</a></li>
+            <li><a class="dropdown-item" href="#"><img src="../../public/assets/images/flag/nuoc-anh.png" alt="" style="width: 15px; padding-bottom: 4px;"> Tiếng Anh</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="nav-header-center">
-      <h1 style="font-size: 36px" class="text-lg sm:max-full sm:text text-center">
-        <RouterLink to="/" style="color: unset; text-decoration: none" >Đổi Font Chữ</RouterLink
+      <h1
+        style="font-size: 36px; padding-bottom: 5px;"
+        class="text-lg sm:max-full sm:text text-center"
+      >
+        <RouterLink to="/" style="color: unset; text-decoration: none"
+          >{{ $t('logo_text') }}</RouterLink
         >
       </h1>
     </div>
     <div class="nav-header-end">
       <div class="header-item dark-mode">
-        <label id="dark" class="" for=""><i class="bi bi-moon-stars"></i></label>
-        <label id="light" class="hidden" for=""><i class="bi bi-brightness-high-fill"></i
+        <label id="dark" class="" for=""
+          ><i class="bi bi-moon-stars"></i
+        ></label>
+        <label id="light" class="hidden" for=""
+          ><i class="bi bi-brightness-high-fill"></i
         ></label>
       </div>
     </div>
@@ -102,7 +128,7 @@ import { RouterLink } from "vue-router";
   }
 }
 
-.nav-header-end{
+.nav-header-end {
   justify-content: flex-end;
   width: 50%;
   display: inline-flex;
@@ -113,7 +139,7 @@ import { RouterLink } from "vue-router";
   flex-shrink: 0;
   display: inline-flex;
 }
-.nav-header-center h1.text-center{
+.nav-header-center h1.text-center {
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -126,7 +152,6 @@ import { RouterLink } from "vue-router";
 }
 .header {
   background-color: #f8f8f8;
-
 }
 
 #header .header-item h1 {
@@ -139,7 +164,6 @@ import { RouterLink } from "vue-router";
   padding-left: 30px;
   text-align: right;
 }
-
 
 #header .header-item:last-child label {
   cursor: pointer;
@@ -204,10 +228,8 @@ label:last-child {
     margin-left: unset;
   }
 
-
   #header .menu label:first-child span {
     display: none;
   }
-  
 }
 </style>
